@@ -15,6 +15,11 @@ converterGson = "2.11.0"
 gson = "2.11.0"
 roomKtx = "2.6.1"
 coilCompose = "2.7.0"
+hiltAndroid = "2.50"
+hiltAndroidGradlePlugin = "2.52"
+gradleVersion = "8.6.0"
+kotlinGradlePlugin = "1.9.0"
+hiltNavigationCompose = "1.2.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -39,6 +44,14 @@ gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomKtx" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomKtx" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilCompose" }
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
+hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltAndroid" }
+hilt-android-gradle-plugin = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "hiltAndroidGradlePlugin" }
+kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlinGradlePlugin" }
+build-gradle = { module = "com.android.tools.build:gradle", version.ref = "gradleVersion" }
+androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
+
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
