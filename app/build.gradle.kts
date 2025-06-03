@@ -80,6 +80,11 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+    // Compose Libs
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.foundation)
+    implementation(libs.androidx.lifecycle.runtime.compose)
+
     // Paging 3
     implementation(libs.androidx.paging.runtime.ktx)
 
