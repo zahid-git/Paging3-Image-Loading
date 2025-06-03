@@ -11,17 +11,17 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.zahid.paging3example.ui.theme.Paging3ExampleTheme
 
 @Composable
-fun showHomePage(
+fun ShowHomePage(
     viewModel: ImageListViewModel = hiltViewModel()
 ){
-    showMainHomePage(
+    ShowMainHomePage(
         viewModel.viewState,
         viewModel::onEvent
     )
 }
 
 @Composable
-fun showMainHomePage(
+fun ShowMainHomePage(
     pageDataModel: ImageListViewState,
     action: (ImageListViewEvent)-> Unit
 ){
@@ -40,8 +40,8 @@ fun showMainHomePage(
 
 @Preview
 @Composable
-fun showHomePagePreview(){
-    showMainHomePage(
+fun ShowHomePagePreview(){
+    ShowMainHomePage(
         pageDataModel = ImageListViewState("1"),
         {}
     )
