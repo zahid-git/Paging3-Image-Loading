@@ -83,8 +83,8 @@ object AppModule {
      * */
     @Provides
     @Singleton
-    fun provideImageRepository(apiService: ApiService, gson: Gson): ImageRepository =
-        ImageRepositoryImpl(apiService = apiService, gson = gson)
+    fun provideImageRepository(apiService: ApiService): ImageRepository =
+        ImageRepositoryImpl(apiService = apiService)
 
 
 }

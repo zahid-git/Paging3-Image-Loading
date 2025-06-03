@@ -9,5 +9,5 @@ data class ImageListModel(
     @SerializedName("width") var width: Long? = -1,
     @SerializedName("height") var height: Long? = -1,
     @SerializedName("url") var url: String? = "",
-    @SerializedName("download_url") var downloadUrl: String? = "",
+    @SerializedName("download_url") var download_url: String? = null,
 ) : Serializable
