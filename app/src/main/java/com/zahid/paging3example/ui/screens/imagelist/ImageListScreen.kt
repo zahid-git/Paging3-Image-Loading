@@ -25,7 +25,6 @@ fun ShowMainHomePage(
     pageDataModel: ImageListViewState,
     action: (ImageListViewEvent)-> Unit
 ){
-
     Paging3ExampleTheme {
         Column(
             modifier = Modifier

@@ -6,6 +6,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface ImageRepository {
 
-    fun loadImages(nextIndex: Int) : Flow<DataResult<ImageListModel>>
+    suspend fun loadImages(page: Int, limit: Int) : Flow<DataResult<ImageListModel>>
 
 }

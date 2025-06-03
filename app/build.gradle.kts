@@ -30,11 +30,11 @@ android {
     productFlavors {
         create("dev") {
             dimension = "environment"
-            buildConfigField("String", "API_BASE_URL", "\"https://picsum.photos/v2/list/\"")
+            buildConfigField("String", "API_BASE_URL", "\"https://picsum.photos/v2/\"")
         }
         create("production") {
             dimension = "environment"
-            buildConfigField("String", "API_BASE_URL", "\"https://picsum.photos/v2/list/\"")
+            buildConfigField("String", "API_BASE_URL", "\"https://picsum.photos/v2/\"")
         }
     }
 
