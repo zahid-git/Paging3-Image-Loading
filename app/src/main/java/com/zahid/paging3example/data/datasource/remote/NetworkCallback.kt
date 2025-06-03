@@ -21,7 +21,7 @@ abstract class NetworkCallback{
             if(apiResponse.isSuccessful) {
                 apiResponse.body()?.let { response ->
                     val gsonParser = Gson()
-                    val jsonElement: JsonElement = JsonParser.parseString(response.toString())
+                    val jsonElement: JsonElement = JsonParser.parseString(gsonParser.toJson(response))
 
                     if(jsonElement.isJsonArray) {
                         val listType = object : TypeToken<T>() {}.type

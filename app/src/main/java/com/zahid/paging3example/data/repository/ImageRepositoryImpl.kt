@@ -18,9 +18,9 @@ class ImageRepositoryImpl @Inject constructor(
     override suspend fun loadImages(page: Int, limit: Int) : Flow<DataResult<List<ImageListModel>>> = flow{
         try {
             emit(DataResult.OnLoading())
-            val apiResponse = apiService.fetchImages(page, limit)
-            apiResponse.body()?.let {
-                emit(DataResult.OnSuccess(data = it))
+            val apiResponse =  safeAPICall { apiService.fetchImages(page, limit) }
+            apiResponse.data?.let {
+                emit(DataResult.OnSuccess(data = it.data))
             } ?: run {
                 emit(DataResult.OnFail(message = "No Data", data = listOf(), code = null))
             }
