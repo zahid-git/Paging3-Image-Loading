@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     id("org.jetbrains.kotlin.kapt")
+    id("dagger.hilt.android.plugin")
+    id("kotlin-kapt")
 }
 
 android {
@@ -28,11 +30,11 @@ android {
     productFlavors {
         create("dev") {
             dimension = "environment"
-            buildConfigField("String", "API_BASE_URL", "\"https://picsum.photos/v2/list/\"")
+            buildConfigField("String", "API_BASE_URL", "\"https://picsum.photos/v2/\"")
         }
         create("production") {
             dimension = "environment"
-            buildConfigField("String", "API_BASE_URL", "\"https://picsum.photos/v2/list/\"")
+            buildConfigField("String", "API_BASE_URL", "\"https://picsum.photos/v2/\"")
         }
     }
 
@@ -48,6 +50,9 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
+    }
+    kapt {
+        correctErrorTypes = true
     }
     kotlinOptions {
         jvmTarget = "11"
@@ -75,8 +80,18 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+    // Compose Libs
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.foundation)
+    implementation(libs.androidx.lifecycle.runtime.compose)
+
     // Paging 3
     implementation(libs.androidx.paging.runtime.ktx)
+
+    // Dagger Hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
+    implementation(libs.androidx.hilt.navigation.compose)
 
     // Retrofit
     implementation(libs.retrofit)
