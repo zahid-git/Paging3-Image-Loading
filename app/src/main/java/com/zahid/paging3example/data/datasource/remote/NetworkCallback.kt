@@ -8,12 +8,8 @@ import com.zahid.paging3example.data.datasource.DataResult
 import com.zahid.paging3example.data.datasource.model.BaseDataModel
 import retrofit2.Response
 import java.net.HttpURLConnection
-import javax.inject.Inject
 
 abstract class NetworkCallback{
-    fun <T> fail(response: T?, message: String, code: Int?) : DataResult<T> = DataResult.OnFail(
-        message = message, data = response, code = code
-    )
 
     inline fun <reified T: Any> safeAPICall( apiCall: ()-> Response<T>) : DataResult<BaseDataModel<T>> {
         return try {
@@ -35,20 +31,20 @@ abstract class NetworkCallback{
                     apiResponse.errorBody().let { errorResponse ->
                         val gsonParser = Gson()
                         val errorResponseData = gsonParser.fromJson(gsonParser.toJson(errorResponse), T::class.java)
-                        fail(response = null, message = "Fail to load data", code = null)
+                        DataResult.OnFail(data = null, message = "Fail to load data", code = null)
                     }
                 }
             } else if(apiResponse.code() == HttpURLConnection.HTTP_BAD_REQUEST){
-                fail(message = "Bad Request", response = null, code = apiResponse.code())
+                DataResult.OnFail(data = null,message = "Bad Request", code = apiResponse.code())
             }else if(apiResponse.code() == HttpURLConnection.HTTP_UNAUTHORIZED){
-                fail(message = "Unauthorized", response = null, code = apiResponse.code())
+                DataResult.OnFail(data = null,message = "Unauthorized", code = apiResponse.code())
             }else if (apiResponse.code() == HttpURLConnection.HTTP_INTERNAL_ERROR){
-                fail(message = "Internal Error", response = null, code = apiResponse.code())
+                DataResult.OnFail(data = null,message = "Internal Error", code = apiResponse.code())
             } else {
-                fail(message = "Error Occurred", response = null, code = apiResponse.code())
+                DataResult.OnFail(data = null,message = "Error Occurred", code = apiResponse.code())
             }
         } catch (e: Exception) {
-            fail(message = e.message.toString(), response = null, code = null)
+            DataResult.OnFail(data = null,message = e.message.toString(), code = null)
         }
     }
 }

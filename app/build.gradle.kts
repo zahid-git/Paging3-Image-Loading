@@ -86,6 +86,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.compose)
 
     // Paging 3
+    implementation(libs.androidx.paging.compose)
     implementation(libs.androidx.paging.runtime.ktx)
 
     // Dagger Hilt
