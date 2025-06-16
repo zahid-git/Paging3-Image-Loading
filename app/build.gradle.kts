@@ -5,6 +5,7 @@ plugins {
     id("org.jetbrains.kotlin.kapt")
     id("dagger.hilt.android.plugin")
     id("kotlin-kapt")
+    id ("org.jetbrains.kotlin.plugin.serialization") version "2.0.21"
 }
 
 android {
@@ -86,6 +87,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.compose)
 
     // Paging 3
+    implementation(libs.androidx.paging.compose)
     implementation(libs.androidx.paging.runtime.ktx)
 
     // Dagger Hilt
