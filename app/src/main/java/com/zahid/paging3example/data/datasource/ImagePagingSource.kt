@@ -9,6 +9,8 @@ class ImagePagingSource(
     private val apiService: ApiService
 ) : PagingSource<Int, ImageListModel>() {
 
+    private val numOfOffScreenPage: Int = 1
+
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, ImageListModel> {
         val pageIndex = params.key ?: 1
         val pageSize = 10
@@ -27,8 +29,8 @@ class ImagePagingSource(
 
     override fun getRefreshKey(state: PagingState<Int, ImageListModel>): Int? {
         return state.anchorPosition?.let { anchorPosition ->
-            state.closestPageToPosition(anchorPosition)?.prevKey?.plus(1)
-                ?: state.closestPageToPosition(anchorPosition)?.nextKey?.minus(1)
+            state.closestPageToPosition(anchorPosition)?.prevKey?.plus(numOfOffScreenPage)
+                ?: state.closestPageToPosition(anchorPosition)?.nextKey?.minus(numOfOffScreenPage)
         }
     }
 

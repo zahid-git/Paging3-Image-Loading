@@ -18,10 +18,6 @@ class ImageListViewModel @Inject constructor(
     private val imageRepository: ImageRepository
 ) : ViewModel() {
 
-    init {
-        fetchImageList()
-    }
-
     private val _viewState = MutableStateFlow(ImageListViewState())
     val viewState = _viewState.asStateFlow()
 
@@ -34,25 +30,5 @@ class ImageListViewModel @Inject constructor(
             }
         }
     }
-
-    fun fetchImageList(){
-        viewModelScope.launch {
-            imageRepository.loadImages( 1, 10).collect { dataResult ->
-                when(dataResult) {
-                    is DataResult.OnLoading<List<ImageListModel>> -> {
-                        _viewState.value = _viewState.value.copy(dataFetching = true)
-                    }
-                    is DataResult.OnSuccess<List<ImageListModel>> -> {
-                        _viewState.value = _viewState.value.copy(imageList = viewState.value.imageList + dataResult.data!!, dataFetching = false)
-                    }
-                    is DataResult.OnFail<List<ImageListModel>> -> {
-                        _viewState.value = _viewState.value.copy( dataFetching = false, errorMessage = dataResult.message)
-                    }
-                }
-            }
-        }
-    }
-
-
 
 }

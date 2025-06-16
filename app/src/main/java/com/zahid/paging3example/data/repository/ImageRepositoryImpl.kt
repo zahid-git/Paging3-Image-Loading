@@ -20,20 +20,6 @@ class ImageRepositoryImpl @Inject constructor(
     private val apiService: ApiService
 ) : ImageRepository, NetworkCallback() {
 
-    override suspend fun loadImages(page: Int, limit: Int) : Flow<DataResult<List<ImageListModel>>> = flow{
-        try {
-            emit(DataResult.OnLoading())
-            val apiResponse =  safeAPICall { apiService.fetchImages(page, limit) }
-            apiResponse.data?.let {
-                emit(DataResult.OnSuccess(data = it.data))
-            } ?: run {
-                emit(DataResult.OnFail(message = "No Data", data = listOf(), code = null))
-            }
-        } catch (e: Exception) {
-            emit(DataResult.OnFail(message = e.message?.toString(), data = listOf(), code = null))
-        }
-    }.flowOn(Dispatchers.IO)
-
     override fun loadImagePaging(): Flow<PagingData<ImageListModel>> {
         return Pager(
             config = PagingConfig(
