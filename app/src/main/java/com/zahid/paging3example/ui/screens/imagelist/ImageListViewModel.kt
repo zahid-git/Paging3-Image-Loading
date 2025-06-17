@@ -15,7 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ImageListViewModel @Inject constructor(
-    private val imageRepository: ImageRepository
+    imageRepository: ImageRepository
 ) : ViewModel() {
 
     private val _viewState = MutableStateFlow(ImageListViewState())
