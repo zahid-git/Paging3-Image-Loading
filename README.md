@@ -32,13 +32,6 @@ https://github.com/user-attachments/assets/3ee01a34-0263-4e2b-89c5-fcdedecebda3
 3. **Build and Run**:
     - Click the 'Run' button or use `Shift+F10` to build and launch the app on your device or emulator.
 
-## Project Structure
-
-- `data/` - Contains data sources, repository, and models.
-- `ui/` - Compose UI components and screens.
-- `paging/` - Paging3 implementation and paging sources.
-- `utils/` - Utility classes and helpers.
-
 ## Key Libraries Used
 
 - [Paging 3](https://developer.android.com/topic/libraries/architecture/paging/v3-overview)
