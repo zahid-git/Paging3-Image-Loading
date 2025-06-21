@@ -37,7 +37,7 @@ import org.intellij.lang.annotations.JdkConstants
 fun ShowImageListScreen(
     navController: NavHostController,
     viewModel: ImageListViewModel
-){
+) {
     val viewStateData by viewModel.viewState.collectAsStateWithLifecycle()
     val productItems = viewModel.getImageList.collectAsLazyPagingItems()
 
