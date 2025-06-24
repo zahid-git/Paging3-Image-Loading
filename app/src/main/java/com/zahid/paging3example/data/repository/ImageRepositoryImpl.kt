@@ -15,15 +15,21 @@ class ImageRepositoryImpl @Inject constructor(
     private val apiService: ApiService
 ) : ImageRepository, NetworkCallback() {
 
-    override fun loadImagePaging(): Flow<PagingData<ImageListModel>> {
+    override fun getImages(
+        pageSize: Int,
+        enablePlaceHolders: Boolean,
+        prefetchDistance: Int,
+        initialLoadSize: Int,
+        maxCacheSize: Int
+    ): Flow<PagingData<ImageListModel>> {
         return Pager(
             config = PagingConfig(
-                pageSize = 20,
-                enablePlaceholders = false,
-                prefetchDistance = 15,
-                initialLoadSize = 20,
-                maxSize = 200
-            ), pagingSourceFactory =  {
+                pageSize = pageSize,
+                enablePlaceholders = enablePlaceHolders,
+                prefetchDistance = prefetchDistance,
+                initialLoadSize = initialLoadSize,
+                maxSize = maxCacheSize
+            ), pagingSourceFactory = {
                 ImagePagingSource(apiService)
             }
         ).flow
