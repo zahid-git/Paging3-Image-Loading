@@ -7,6 +7,7 @@ import androidx.paging.cachedIn
 import com.zahid.paging3example.data.datasource.DataResult
 import com.zahid.paging3example.data.datasource.model.ImageListModel
 import com.zahid.paging3example.domain.repository.ImageRepository
+import com.zahid.paging3example.domain.usecase.ImageLoadingUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -15,13 +16,13 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ImageListViewModel @Inject constructor(
-    imageRepository: ImageRepository
+    imageUseCase: ImageLoadingUseCase
 ) : ViewModel() {
 
     private val _viewState = MutableStateFlow(ImageListViewState())
     val viewState = _viewState.asStateFlow()
 
-    val getImageList = imageRepository.loadImagePaging().cachedIn(viewModelScope)
+    val getImageList = imageUseCase.fetchImages().cachedIn(viewModelScope)
 
     fun onEvent(event: ImageListViewEvent) {
         when (event) {

@@ -15,7 +15,7 @@ class ImageRepositoryImpl @Inject constructor(
     private val apiService: ApiService
 ) : ImageRepository, NetworkCallback() {
 
-    override fun loadImagePaging(
+    override fun getImages(
         pageSize: Int,
         enablePlaceHolders: Boolean,
         prefetchDistance: Int,

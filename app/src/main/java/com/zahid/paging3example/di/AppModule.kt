@@ -86,5 +86,4 @@ object AppModule {
     fun provideImageRepository(apiService: ApiService): ImageRepository =
         ImageRepositoryImpl(apiService = apiService)
 
-
 }
