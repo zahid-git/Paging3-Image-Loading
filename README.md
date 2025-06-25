@@ -41,10 +41,15 @@ https://github.com/user-attachments/assets/3ee01a34-0263-4e2b-89c5-fcdedecebda3
 
 ## Example Usage
 
-The app fetches a list of images (e.g., from a mock API or a real endpoint), displays them in a vertical list, and automatically loads more as you scroll.
+The app fetches a list of images (e.g., from a mock API), displays them in a vertical list, and automatically loads more as you scroll.
 
 ```kotlin
 val pager = Pager(
     config = PagingConfig(pageSize = 20),
     pagingSourceFactory = { ImagePagingSource(api) }
 ).flow.cachedIn(viewModelScope)
+```
+
+## Full Instruction
+
+[Check on Medium](https://medium.com/@me.zahidul/mastering-android-pagination-with-paging-3-jetpack-compose-9c8bad8ee98f)
