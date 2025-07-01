@@ -30,7 +30,7 @@ class ImageRepositoryImpl @Inject constructor(
                 initialLoadSize = initialLoadSize,
                 maxSize = maxCacheSize
             ), pagingSourceFactory = {
-                ImagePagingSource(apiService)
+                ImagePagingSource(apiService, 1)
             }
         ).flow
     }
