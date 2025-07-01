@@ -11,7 +11,7 @@ This repository demonstrates how to implement efficient pagination with image lo
 
 ## Sample
 
-https://github.com/user-attachments/assets/3ee01a34-0263-4e2b-89c5-fcdedecebda3
+![Pagination](https://github.com/user-attachments/assets/bb44f8f0-4192-4cbf-b811-22805bf492c7)
 
 ## Getting Started
 
