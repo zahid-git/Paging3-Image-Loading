@@ -6,10 +6,9 @@ import com.zahid.paging3example.data.datasource.model.ImageListModel
 import com.zahid.paging3example.data.datasource.remote.ApiService
 
 class ImagePagingSource(
-    private val apiService: ApiService
+    private val apiService: ApiService,
+    private val numOfOffScreenPage: Int = 4,
 ) : PagingSource<Int, ImageListModel>() {
-
-    private val numOfOffScreenPage: Int = 4
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, ImageListModel> {
         val pageIndex = params.key ?: 1
@@ -28,10 +27,11 @@ class ImagePagingSource(
     }
 
     override fun getRefreshKey(state: PagingState<Int, ImageListModel>): Int? {
-        return state.anchorPosition?.let { anchor ->
-            state.closestPageToPosition(anchor)?.prevKey?.plus(numOfOffScreenPage)
-                ?: state.closestPageToPosition(anchor)?.nextKey?.minus(numOfOffScreenPage)
-        }
+        val anchorPosition = state.anchorPosition ?: return null
+        val anchorPage = state.closestPageToPosition(anchorPosition) ?: return null
+
+        return anchorPage.prevKey?.plus(numOfOffScreenPage)
+            ?: anchorPage.nextKey?.minus(numOfOffScreenPage)
     }
 
 }
