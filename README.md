@@ -1,6 +1,9 @@
 # Paging3 Image Loading Example
 
-This repository demonstrates how to implement efficient pagination with image loading in an Android app using [Paging 3](https://developer.android.com/topic/libraries/architecture/paging/v3-overview), [Kotlin](https://kotlinlang.org/), and [Jetpack Compose](https://developer.android.com/jetpack/compose).
+This repository demonstrates how to implement efficient pagination with image loading in an Android
+app
+using [Paging 3](https://developer.android.com/topic/libraries/architecture/paging/v3-overview), [Kotlin](https://kotlinlang.org/),
+and [Jetpack Compose](https://developer.android.com/jetpack/compose).
 
 ## Features
 
@@ -30,7 +33,8 @@ This repository demonstrates how to implement efficient pagination with image lo
 2. **Open in Android Studio**:
     - Select `Open an existing Android Studio project` and navigate to the cloned folder.
 3. **Build and Run**:
-    - Click the 'Run' button or use `Shift+F10` to build and launch the app on your device or emulator.
+    - Click the 'Run' button or use `Shift+F10` to build and launch the app on your device or
+      emulator.
 
 ## Key Libraries Used
 
@@ -41,7 +45,8 @@ This repository demonstrates how to implement efficient pagination with image lo
 
 ## Example Usage
 
-The app fetches a list of images (e.g., from a mock API), displays them in a vertical list, and automatically loads more as you scroll.
+The app fetches a list of images (e.g., from a mock API), displays them in a vertical list, and
+automatically loads more as you scroll.
 
 ```kotlin
 val pager = Pager(
