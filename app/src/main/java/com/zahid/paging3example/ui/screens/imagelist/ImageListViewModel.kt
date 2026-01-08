@@ -2,18 +2,13 @@ package com.zahid.paging3example.ui.screens.imagelist
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.paging.ExperimentalPagingApi
 import androidx.paging.cachedIn
-import com.zahid.paging3example.data.datasource.DataResult
-import com.zahid.paging3example.data.datasource.model.ImageListModel
-import com.zahid.paging3example.domain.repository.ImageRepository
 import com.zahid.paging3example.domain.usecase.ImageLoadingUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -33,6 +28,6 @@ class ImageListViewModel @Inject constructor(
     fun refreshImages() =
         viewModelScope.launch {
             _viewEvent.emit(ImageListViewEvent.refreshData)
-    }
+        }
 
 }

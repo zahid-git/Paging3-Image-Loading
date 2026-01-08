@@ -12,8 +12,7 @@ interface ApiService {
     suspend fun fetchImages(
         @Query("page") page: Int,
         @Query("limit") limit: Int
-    ) : Response<List<ImageListModel>>
-
+    ): Response<List<ImageListModel>>
 
 
 }

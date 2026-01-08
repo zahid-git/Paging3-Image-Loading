@@ -64,5 +64,5 @@ androidx-foundation = { module = "androidx.compose.foundation:foundation", versi
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-kotlin-ksp = { id = "com.google.devtools.ksp", version.ref="kspVersion" }
+kotlin-ksp = { id = "com.google.devtools.ksp", version.ref = "kspVersion" }
 kotlin-serelization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "serelizationVersion" }

@@ -34,7 +34,6 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import coil.compose.AsyncImage
 import com.zahid.paging3example.data.datasource.model.ImageListModel
 import com.zahid.paging3example.ui.theme.Paging3ExampleTheme
-import kotlinx.coroutines.flow.shareIn
 
 
 @Composable
@@ -47,7 +46,7 @@ fun ShowImageListScreen(
 
     LaunchedEffect(Unit) {
         viewModel.viewEvent.collect { action ->
-            when(action) {
+            when (action) {
                 ImageListViewEvent.refreshData -> imageListItems.refresh()
             }
         }
